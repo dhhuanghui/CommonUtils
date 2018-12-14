@@ -19,7 +19,7 @@ import jp.wasabeef.glide.transformations.BlurTransformation;
 import jp.wasabeef.glide.transformations.CropCircleTransformation;
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
-/**
+/*
  * Created by THINK on 2017/4/5.
  * load SD卡资源：load("file://"+ Environment.getExternalStorageDirectory().getPath()+"/test.jpg")
  * load assets资源：load("file:///android_asset/f003.gif")

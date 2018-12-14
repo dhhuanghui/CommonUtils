@@ -30,7 +30,7 @@ public class TimeUtil {
      * @param calendar calendar
      * @return 判断一个日期是否是周末，即周六日
      */
-    static boolean isWeekend(Calendar calendar) {
+    public static boolean isWeekend(Calendar calendar) {
         int week = getWeekFormCalendar(calendar);
         return week == 0 || week == 6;
     }
@@ -42,7 +42,7 @@ public class TimeUtil {
      * @param month 月
      * @return 某月的天数
      */
-    static int getMonthDaysCount(int year, int month) {
+    public static int getMonthDaysCount(int year, int month) {
         int count = 0;
         //判断大月份
         if (month == 1 || month == 3 || month == 5 || month == 7
@@ -73,7 +73,7 @@ public class TimeUtil {
      * @param year year
      * @return return
      */
-    static boolean isLeapYear(int year) {
+    public static boolean isLeapYear(int year) {
         return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
     }
 
@@ -94,7 +94,7 @@ public class TimeUtil {
      * @param dayInYear 某年第几天
      * @return 第几个月
      */
-    static int getMonthFromDayInYear(int year, int dayInYear) {
+    public static int getMonthFromDayInYear(int year, int dayInYear) {
         int count = 0;
         for (int i = 1; i <= 12; i++) {
             count += getMonthDaysCount(year, i);
@@ -111,7 +111,7 @@ public class TimeUtil {
      * @param calendar calendar
      * @return 获取某天在该月的第几周
      */
-    static int getWeekFromDayInMonth(Calendar calendar) {
+    public static int getWeekFromDayInMonth(Calendar calendar) {
         java.util.Calendar date = java.util.Calendar.getInstance();
         date.set(calendar.getYear(), calendar.getMonth() - 1, 1);
         int diff = date.get(java.util.Calendar.DAY_OF_WEEK) - 1;//该月第一天为星期几,星期天 == 0，也就是偏移量
@@ -124,7 +124,7 @@ public class TimeUtil {
      * @param calendar 某个日期
      * @return 返回某个日期是星期几
      */
-    static int getWeekFormCalendar(Calendar calendar) {
+    public static int getWeekFormCalendar(Calendar calendar) {
         java.util.Calendar date = java.util.Calendar.getInstance();
         date.set(calendar.getYear(), calendar.getMonth() - 1, calendar.getDay());
         return date.get(java.util.Calendar.DAY_OF_WEEK) - 1;
@@ -138,7 +138,7 @@ public class TimeUtil {
      * @param weekInYear 某年第几周
      * @return 第几个月
      */
-    static int getMonthFromWeekFirstDayInYear(int year, int weekInYear) {
+    public static int getMonthFromWeekFirstDayInYear(int year, int weekInYear) {
         java.util.Calendar date = java.util.Calendar.getInstance();
         date.set(year, 0, 1);
         int diff = date.get(java.util.Calendar.DAY_OF_WEEK) - 1;//1月第一天为星期几,星期天 == 0，也就是偏移量
@@ -160,7 +160,7 @@ public class TimeUtil {
      * @param maxYear maxYear
      * @return 周数
      */
-    static int getWeekCountBetweenYearAndYear(int minYear, int maxYear) {
+    public static int getWeekCountBetweenYearAndYear(int minYear, int maxYear) {
         if (minYear > maxYear)
             return 0;
         java.util.Calendar date = java.util.Calendar.getInstance();
@@ -185,7 +185,7 @@ public class TimeUtil {
      * @param maxYearMonth maxYear 最大年份月份
      * @return 周数
      */
-    static int getWeekCountBetweenYearAndYear(int minYear, int minYearMonth, int maxYear, int maxYearMonth) {
+    public static int getWeekCountBetweenYearAndYear(int minYear, int minYearMonth, int maxYear, int maxYearMonth) {
         java.util.Calendar date = java.util.Calendar.getInstance();
         date.set(minYear, minYearMonth - 1, 1);
         long minTime = date.getTimeInMillis();//给定时间戳
@@ -206,7 +206,7 @@ public class TimeUtil {
      * @param minYear  minYear
      * @return 返回两个年份中第几周
      */
-    static int getWeekFromCalendarBetweenYearAndYear(Calendar calendar, int minYear, int minYearMonth) {
+    public static int getWeekFromCalendarBetweenYearAndYear(Calendar calendar, int minYear, int minYearMonth) {
         java.util.Calendar date = java.util.Calendar.getInstance();
         date.set(minYear, 0, 1);//1月1日
         long firstTime = date.getTimeInMillis();//获得起始时间戳
@@ -230,7 +230,7 @@ public class TimeUtil {
      * @param maxYearMonth maxYearMonth
      * @return 是否在日期范围內
      */
-    static boolean isCalendarInRange(Calendar calendar, int minYear, int minYearMonth, int maxYear, int maxYearMonth) {
+    public static boolean isCalendarInRange(Calendar calendar, int minYear, int minYearMonth, int maxYear, int maxYearMonth) {
         java.util.Calendar c = java.util.Calendar.getInstance();
         c.set(minYear, minYearMonth - 1, 1);
         long minTime = c.getTimeInMillis();
@@ -252,7 +252,7 @@ public class TimeUtil {
      * @param maxYearMonth maxYearMonth
      * @return 是否在日期范围內
      */
-    static boolean isMonthInRange(int year, int month, int minYear, int minYearMonth, int maxYear, int maxYearMonth) {
+    public static boolean isMonthInRange(int year, int month, int minYear, int minYearMonth, int maxYear, int maxYearMonth) {
         return !(year < minYear || year > maxYear) &&
                 !(year == minYear && month < minYearMonth) &&
                 !(year == maxYear && month > maxYearMonth);
@@ -266,7 +266,7 @@ public class TimeUtil {
      * @param week         从最小年份1月1日开始的第几周
      * @return 该星期的第一天日期
      */
-    static Calendar getFirstCalendarFromWeekCount(int minYear, int minYearMonth, int week) {
+    public static Calendar getFirstCalendarFromWeekCount(int minYear, int minYearMonth, int week) {
         java.util.Calendar date = java.util.Calendar.getInstance();
         date.set(minYear, 0, 1);//1月1日
         long firstTime = date.getTimeInMillis();//获得起始时间戳
@@ -288,7 +288,7 @@ public class TimeUtil {
      * @param minYearMonth minYearMonth
      * @return 获取星期偏移了多少周
      */
-    static int getWeekCountDiff(int minYear, int minYearMonth) {
+    public static int getWeekCountDiff(int minYear, int minYearMonth) {
         if (minYearMonth == 1) {
             return -1;
         }
@@ -310,7 +310,7 @@ public class TimeUtil {
      * @param calendar 日期Calendar
      * @return 0 —— 53
      */
-    static int getWeekFromCalendarInYear(Calendar calendar) {
+    public static int getWeekFromCalendarInYear(Calendar calendar) {
         java.util.Calendar date = java.util.Calendar.getInstance();
         date.set(calendar.getYear(), 0, 1);
         int count = date.get(java.util.Calendar.DAY_OF_WEEK) - 1;//前补位
@@ -514,7 +514,7 @@ public class TimeUtil {
 
 
     /**
-     * 当地时间 ---> UTC时间
+     * 当地时间转化为UTC时间
      *
      * @return
      */
