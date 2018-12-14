@@ -21,4 +21,10 @@ LunarCalendar.init(context)；
 ```
 SharedPreferencesUtil.init(context, "name", Context.MODE_PRIVATE);
 ```
-4、LunarSolarConverter：公农历互转工具类
+4. LunarSolarConverter：公农历互转工具类
+5. AndroidBug5497Workaround：Android WebView中的软键盘弹出，可以把布局顶上去
+6. BeanUtils：对象属性的拷贝工具类
+7. DateUtil：年月日时的天干地支转化工具类
+8. BitmapUtils：图片处理工具类
+9. ImageUtil：图片加载工具类，使用Glide
+10. 其他工具类：TimeUtil，ToastUtils，MD5，Base64，FileUtil等等
