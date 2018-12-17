@@ -2,11 +2,11 @@
 工具类
 ### 使用方法
 ```
-compile 'com.dh.commonutilslib:commonutilslib:1.0.0'
+compile 'com.dh.commonutilslib:commonutilslib:1.0.1'
 ```
 或者
 ```
-implementation 'com.dh.commonutilslib:commonutilslib:1.0.0'
+implementation 'com.dh.commonutilslib:commonutilslib:1.0.1'
 ```
 ### 主要说明
 1. SolarTermUtil：24节气相关工具类，使用前必须先调用init方法：
